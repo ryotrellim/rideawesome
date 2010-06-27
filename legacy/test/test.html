@@ -1,0 +1,57 @@
+<html>
+<head>
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+<script type="text/javascript">
+  function initialize() {
+    var mylatlng = new google.maps.LatLng(30.267, -97.75);
+    var myOptions = {
+      zoom: 11,
+      center: mylatlng,
+      mapTypeId: google.maps.MapTypeId.TERRAIN
+    }
+    var map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+      //
+      // Constructor: google.maps.Map( opts?)  	
+      // Performs: Creates a new map using the passed optional parameters in the opts parameter.
+      //
+      
+    
+    var contentString = '<div id="content" style="width: 350px; height: 150px; overflow-y: scroll; scrollbar-arrow-color:blue; scrollbar-face-color: #e7e7e7; scrollbar-3dlight-color: #a0a0a0; scrollbar-darkshadow-color:#888888">'+ // window scrolling and size
+    '<div id="siteNotice">'+ 
+    '</div>'+
+    '<h1 id="firstHeading" class="firstHeading">Austin</h1>'+
+    '<div id="bodyContent">'+
+    '<p><b>Austin</b> Yep, here it is.  This is the city of austin.  '+
+    'Provided that I write enough, then the rest should take care of itself.'+
+    '  This box should wrap around nicely, breaking when it should.  It '+	
+    'be tidy and not have any overflow at all.  Hopefully, the scroll bar will work.'
+    '</div>'+
+    '</div>';
+    
+    var infowindow = new google.maps.InfoWindow({
+    content: contentString,
+    });
+    
+    var marker = new google.maps.Marker({
+       position: mylatlng, 
+       map: map, 
+       title:"Hello World!"
+    }); 
+    
+    google.maps.event.addListener(marker, 'click', function() {
+       infowindow.open(map,marker);
+    });
+
+  }
+
+</script>
+</head>
+<body onLoad="initialize()">
+  <div id="map_canvas" style="width:100%; height:90%"></div>
+
+<center><p>A map of austin is above this.
+  <p>  
+  <p>
+  </center></body>
+</html>

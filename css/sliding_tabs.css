@@ -1,0 +1,12 @@
+.tab_overflow{
+	position:relative;
+	overflow:hidden;
+}
+.tab_container{
+	position:relative;
+	white-space:nowrap;
+}
+.tab_body_container{
+	position:relative;
+	overflow:hidden;
+}
